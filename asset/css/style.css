@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
 body {
   font-family: "Poppins", sans-serif;
   font-weight: 400;
@@ -669,6 +669,7 @@ body {
 }
 .review_box {
   float: left;
+  min-width: 160px;
   border: 1px solid #eaeaec;
   font-size: 0.85rem;
   color: #282c3f;
@@ -805,17 +806,16 @@ body {
 }
 
 .spec_price del {
-  font-size: 1.4rem;
+  font-size: 1rem;
   color: #535665;
   font-weight: 400;
   margin-left: 7px;
 }
 
 .spec_price span {
-  font-size: 1.3rem;
+  font-size: 1rem;
   color: #ff905a;
-  font-weight: 600;
-  margin-left: 10px;
+  font-weight: 500;
 }
 
 .spec_stock {
@@ -823,6 +823,106 @@ body {
   color: #03a790;
   font-weight: 500;
 }
+
+.menu_links {
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: #282c3f;
+}
+
+.menu_links strong,
+.cat_title {
+  font-weight: 600;
+  color: #141414;
+}
+
+.cat_title span {
+  font-weight: 400;
+  color: #666666;
+  font-size: 0.8rem;
+}
+.filter_container {
+  float: left;
+  width: 100%;
+}
+.filter_container h1 {
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #000000;
+  padding: 0;
+  margin: 0;
+  margin-bottom: 0.6rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid #e9e9ed;
+}
+
+.filter_container h2 {
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #282c3f;
+  margin: 10px 0px;
+  padding: 0;
+}
+
+/*************************************/
+.filter_ck_box {
+  float: left;
+  width: 100%;
+  margin: 2px 0px;
+}
+.filter_ck_ctrl {
+  float: left;
+  width: 35px;
+}
+.filter_ck_txt {
+  float: left;
+  width: calc(100% - 35px);
+  font-size: 0.85rem;
+  color: #454545;
+}
+
+input[type="checkbox"] {
+  /* change the appearance of the checkbox */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: #fafafa;
+  border: 1px solid #cacece;
+  box-shadow: none;
+  border-radius: 3px;
+  transition: all 0.2s ease;
+}
+
+input[type="checkbox"]:checked {
+  /* change the appearance of the checked checkbox */
+  background: #f44336;
+  content: "✔";
+  box-shadow: inset 0px 0px 0px 3px #ffffff;
+}
+.custom-select {
+  font-size: 0.85rem;
+  font-weight: 500;
+  border-radius: 2px;
+  color: #0f0f0f;
+  border: 1px solid #cacece;
+}
+
+.price_control {
+  font-size: 0.85rem;
+  height: 40px;
+  border-radius: 3px;
+}
+.btn_price {
+  background-color: #f44336;
+  border: none;
+  height: 40px;
+  border-radius: 3px;
+}
+/***********************************/
 
 @keyframes loader {
   0% {
