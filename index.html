@@ -213,8 +213,15 @@
                     <div class="search_control">
 
                         <div class="search_category">
-                            <div class="search_selectbox">
+                            <div class="search_selectbox" data-toggle="dropdown">
                                 All Categories
+                            </div>
+                            <div class="dropdown-menu dropdown_setting dropdown_setting_category">
+                                <a class="setting_item_category" href="#">Men clothing</a>
+                                <a class="setting_item_category" href="#">Women clothing</a>
+                                <a class="setting_item_category" href="#">Kids</a>
+                                <a class="setting_item_category" href="#">Health & Beauty</a>
+                                <a class="setting_item_category" href="#">Best seller</a>
                             </div>
                         </div>
                         <input type="text" class="form-control search_textbox"
@@ -227,14 +234,32 @@
                 <div class="col-4 pt-2 pt-md-0 col-md-3 order-md-3 order-2">
                     <div class="row no-gutters">
                         <div class="col-6">
-                            <center><img src="asset/img/user.svg" width="22px"></center>
-                            <div class="header_icon">Login / Signup</div>
+                            <div style="width: 100%; cursor: pointer;" data-toggle="dropdown">
+                                <center><img src="asset/img/user.svg" width="22px"></center>
+                                <div class="header_icon">Login / Signup</div>
+                            </div>
+                            <div class="dropdown-menu dropdown_setting">
+                                <a class="setting_item" href="#"><span><ion-icon
+                                            name="person-outline"></ion-icon></span>
+                                    Account</a>
+                                <a class="setting_item" href="#"><span><ion-icon name="cart-outline"></ion-icon></span>
+                                    Orders</a>
+                                <a class="setting_item" href="#"><span><ion-icon name="heart-outline"></ion-icon></span>
+                                    Wishlist</a>
+                                <a class="setting_item" href="#"><span><ion-icon
+                                            name="log-out-outline"></ion-icon></span>
+                                    Logout</a>
+                            </div>
                         </div>
                         <div class="col-6">
                             <center><img src="asset/img/shopping-bag.svg" width="22px"></center>
                             <div class="header_icon">My Cart [0]</div>
                         </div>
                     </div>
+
+                    <!-- <div style="top: 60px; z-index: 10; left: 0; width: 100%; height: 300px; position: absolute; background-color: red;">
+                    
+                    </div> -->
                 </div>
             </div>
         </div>

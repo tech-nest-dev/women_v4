@@ -37,7 +37,7 @@ body {
   /*background-color: #f1eae3;*/
   background-color: #ffffff;
   padding-top: 20px;
-  padding-bottom: 15px;
+  padding-bottom: 13px;
 }
 
 .navbar {
@@ -89,6 +89,69 @@ body {
   border-radius: 50%;
 }
 
+.dropdown_setting {
+  position: absolute;
+  top: 100%;
+  left: -1.2rem !important;
+  z-index: 1000;
+  display: none;
+  float: left;
+  min-width: 12rem;
+  padding: 0px 0.5rem;
+  margin-top: 2rem;
+  border: 1px solid #e7e7e7;
+  background-color: #ffffff;
+  border-bottom: none;
+  border-radius: 0.25rem;
+}
+
+.dropdown_setting_category {
+  margin-top: 1rem;
+}
+
+.dropdown_setting::before {
+  width: 16px;
+  height: 16px;
+  border: 1px solid #e7e7e7;
+  position: absolute;
+  top: -8px;
+  left: calc(50% - 10px);
+  content: "";
+  transform: rotate(45deg);
+  background-color: #ffffff;
+  border-bottom: none;
+  border-right: none;
+  z-index: -10;
+}
+
+.setting_item,
+.setting_item_category {
+  display: block;
+  width: 100%;
+  padding: 1rem 1.5rem;
+  padding-left: 2.5rem;
+  clear: both;
+  font-size: 0.85rem;
+  border-bottom: 1px solid #e7e7e7;
+  font-weight: 400;
+  color: #7f7f7f;
+  text-align: inherit;
+  white-space: nowrap;
+  background-color: transparent;
+  position: relative;
+}
+.setting_item span {
+  font-size: 1.2rem;
+  position: absolute;
+  top: 0.85rem;
+  left: 0.5rem;
+}
+
+.setting_item_category {
+  padding: 0.5rem 1rem;
+  padding-left: 1.5rem !important;
+  color: #0f0f0f;
+}
 .btn-shop {
   border-radius: 0;
   border: 2px solid #000000;
@@ -618,6 +681,7 @@ body {
   font-size: 0.85rem;
   text-align: center;
   line-height: 40px;
+  cursor: pointer;
   overflow: hidden;
 }
 
@@ -629,7 +693,65 @@ body {
 .navbar-brand img {
   width: 120px;
 }
+/*************************/
+.cart_spec {
+  float: left;
+  width: 100%;
+  position: relative;
+  border: 1px solid #eaeaea;
+  padding: 1rem;
+  border-radius: 3px;
+}
+.cart_spec_close {
+  top: -15px;
+  right: 5px;
+  position: absolute;
+  z-index: 1;
+  font-size: 2rem;
+}
+.cart_spec h3 {
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: #222222;
+  text-align: right;
+}
+.cart_spec h4 {
+  float: left;
+  width: 100%;
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: #222222;
+  margin: 0;
+}
+.cart_spec h5 {
+  float: left;
+  width: 100%;
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: #aaaaaa;
+  margin-top: 3px;
+  margin-bottom: 12px;
+}
+.cart_spec h6 {
+  float: left;
+  width: 100%;
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: #da6868;
+  margin-top: 10px;
+}
 
+.cart_spec span {
+  float: left;
+  padding: 3px 10px;
+  background-color: #f0f0f0;
+  border-radius: 3px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #141414;
+  margin-right: 8px;
+}
+/*************************/
 /* Preloder */
 
 #preloder {
@@ -1013,5 +1135,26 @@ input[type="checkbox"]:checked {
     width: 100%4;
     font-size: 0.85rem;
     padding-left: 0px;
+  }
+
+  .cart_spec {
+    padding: 0.3rem;
+    border-radius: 3px;
+  }
+
+  .cart_spec span {
+    padding: 2px 5px;
+    font-size: 0.7rem;
+    font-weight: 500;
+    margin-right: 5px;
+  }
+
+  .cart_spec_close {
+    top: 0px;
+    right: 5px;
+    font-size: 1.5rem;
+  }
+  #cart_summary{
+    display: none;
   }
 }

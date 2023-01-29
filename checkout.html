@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Demo by Prabu</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#121212">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@500&display=swap" rel="stylesheet">
+    <!-- Owl Stylesheets -->
+    <link rel="stylesheet" href="./asset/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="./asset/css/owl.theme.default.min.css">
+    <!-------------------------------->
+    <link rel="stylesheet" href="asset/css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script src="./asset/js/owl.carousel.js"></script>
+    <style>
+        .carousel-inner img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .owl-theme .owl-nav {
+            margin-top: 10px;
+            position: absolute;
+            top: -45px;
+            right: 0;
+            margin: 0;
+            padding: 0;
+        }
+
+        @media (max-width: 575.98px) {
+            .owl-theme .owl-nav {
+                margin-top: 0px;
+                position: absolute;
+                top: unset;
+                bottom: -20px;
+                right: 0;
+                left: 0;
+                margin: 0 auto;
+                padding: 0;
+            }
+        }
+
+        .owl-carousel .owl-nav button.owl-next,
+        .owl-carousel .owl-nav button.owl-prev {
+            margin: 0;
+            margin-left: 10px;
+            background: #cccccc;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            border: none;
+            font-size: 14px;
+        }
+
+        .new-arrivals-item_100 {
+            width: 100% !important;
+            margin-bottom: 0.75rem;
+        }
+
+        .container_padding {
+            padding-left: 7rem;
+            padding-right: 7rem;
+        }
+
+        .form-group {
+            position: relative;
+        }
+
+        .checkout_form label {
+            font-size: 0.85rem;
+            color: #343434 !important;
+            transition: font-size 0.2s;
+        }
+
+        .checkout_form label.shrink {
+            font-size: 0.7rem;
+        }
+
+        .form-control-checkout {
+            border: 1px solid #cccccc;
+            border-radius: 8px;
+            height: 48px;
+            font-size: 0.85rem;
+        }
+
+        .form-control-checkout::-webkit-input-placeholder {
+            color: #b3b3bc;
+        }
+
+        .form-control-checkout::-moz-placeholder {
+            color: #b3b3bc;
+        }
+
+        .form-control-checkout:-ms-input-placeholder {
+            color: #b3b3bc;
+        }
+
+        .form-control-checkout::-ms-input-placeholder {
+            color: #b3b3bc;
+        }
+
+        .form-control-checkout::placeholder {
+            color: #b3b3bc;
+        }
+
+
+        /* ============ desktop view ============ */
+        @media all and (min-width: 992px) {
+
+            .sidebar li {
+                position: relative;
+            }
+
+            .sidebar li .submenu {
+                display: none;
+                position: absolute;
+                left: 100%;
+                top: -7px;
+                min-width: 240px;
+            }
+
+            [dir=rtl] .sidebar li .submenu {
+                right: 100%;
+                left: auto;
+            }
+
+            .sidebar li:hover {
+                background: var(--bs-light);
+            }
+
+            .sidebar li:hover>.submenu {
+                display: block;
+                padding: 0.5rem 1rem;
+                border-radius: 8px;
+                border: 1px solid #cccccc;
+                background-color: rgba(255, 255, 255, 0.968);
+                box-shadow: 0px 5px 10px -5px rgba(0, 0, 0, 0.3);
+            }
+
+        }
+
+        /* ============ desktop view .end// ============ */
+
+
+        /* ============ small devices ============ */
+        @media (max-width: 991px) {
+
+            .sidebar .submenu,
+            .sidebar .dropdown-menu {
+                position: static !important;
+                margin-left: 0.7rem;
+                margin-right: 0.7rem;
+                margin-bottom: .5rem;
+            }
+
+            .container_padding {
+                padding-left: 0rem;
+                padding-right: 0rem;
+            }
+
+        }
+
+        /* ============ small devices .end// ============ */
+
+
+        .sidebar .nav-link {
+            font-weight: 500;
+            color: var(--bs-dark);
+            font-size: 0.85rem;
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+        }
+
+        .sidebar .nav-link:hover {
+            background: var(--bs-light);
+            color: var(--bs-primary);
+        }
+    </style>
+
+
+
+    <script type="text/javascript">
+        // window.addEventListener("resize", function () {
+        //     "use strict"; window.location.reload();
+        // });
+
+        document.addEventListener("DOMContentLoaded", function () {
+            // make it as accordion for smaller screens
+            if (window.innerWidth < 992) {
+
+                document.querySelectorAll('.sidebar .nav-link').forEach(function (element) {
+
+                    element.addEventListener('click', function (e) {
+
+                        let nextEl = element.nextElementSibling;
+                        let parentEl = element.parentElement;
+                        let allSubmenus_array = parentEl.querySelectorAll('.submenu');
+
+                        if (nextEl && nextEl.classList.contains('submenu')) {
+                            e.preventDefault();
+                            if (nextEl.style.display == 'block') {
+                                nextEl.style.display = 'none';
+
+                            } else {
+                                nextEl.style.display = 'block';
+                            }
+
+                        }
+                    });
+                })
+            }
+            // end if innerWidth
+
+        });
+	// DOMContentLoaded  end
+    </script>
+</head>
+
+<body>
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+    <div class="d-none d-md-block">
+        <div class="container-fluid header_bottom">
+            <div class="container_padding">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <span>News & Event</span>
+                        <span>Seller registration</span>
+                        <span>Customer care</span>
+                        <span>Track my order</span>
+                        <span>Inquiry</span>
+                        <span>FAQ</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid header-mid">
+        <div class="container_padding">
+            <div class="row">
+                <div class="col-8 col-md-3  order-md-1 order-1">
+                    <div class="logo_txt">
+                        <!-- <img src="./asset/img/logo.png" width="30px">  -->Womens.lk
+                    </div>
+                </div>
+                <div class="col-12 col-md-6  order-md-2 order-3">
+                    <div class="search_control">
+
+                        <div class="search_category">
+                            <div class="search_selectbox">
+                                All Categories
+                            </div>
+                        </div>
+                        <input type="text" class="form-control search_textbox"
+                            placeholder="Search for products, brands, category...">
+                        <div class="search_icon">
+                            <img src="asset/img/search_bg.svg" width="14px">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4 pt-2 pt-md-0 col-md-3 order-md-3 order-2">
+                    <div class="row no-gutters">
+                        <div class="col-6">
+                            <center><img src="asset/img/user.svg" width="22px"></center>
+                            <div class="header_icon">Login / Signup</div>
+                        </div>
+                        <div class="col-6">
+                            <center><img src="asset/img/shopping-bag.svg" width="22px"></center>
+                            <div class="header_icon">My Cart [0]</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid mb-3" style="border-top:2px solid #f2f2f2; border-bottom:2px solid #f2f2f2;">
+        <div class="container_padding">
+            <div class="row">
+                <div class="col-md-3">
+                    <button type="button" class="btn btn-block btn-warning btn-category">
+                        <img src="./asset/img/menu-burger.svg" width="16px" class="mr-3"> Shop by Category
+                    </button>
+                    <div class="drop_category" id="shop_by_cat">
+                        <nav class="sidebar">
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#"> Men clothing <b class="float-end">&raquo;</b> </a>
+                                    <ul class="submenu dropdown-menu">
+                                        <li><a class="nav-link" href="#">Submenu item 1 </a></li>
+                                        <li><a class="nav-link" href="#">Submenu item 2 </a></li>
+                                        <li><a class="nav-link" href="#">Submenu item 3 </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#"> Women clothing <b class="float-end">&raquo;</b>
+                                    </a>
+                                    <ul class="submenu dropdown-menu">
+                                        <li><a class="nav-link" href="#">Submenu item 1 </a></li>
+                                        <li><a class="nav-link" href="#">Submenu item 2 </a></li>
+                                        <li><a class="nav-link" href="#">Submenu item 3 <b class="float-end">&raquo;</b>
+                                            </a>
+                                            <ul class="submenu dropdown-menu">
+                                                <li><a class="nav-link" href="#">Multi level 1</a></li>
+                                                <li><a class="nav-link" href="#">Multi level 2</a></li>
+                                                <li><a class="nav-link" href="#">Multi level 3</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Kids</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Health & Beauty</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Gift Vouchers</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Best seller</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Kids</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Health & Beauty</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Gift Vouchers</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Best seller</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav mr-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">
+                                        <ion-icon name="home-outline"></ion-icon> Home
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">
+                                        <ion-icon name="flash-outline"></ion-icon> Best deals
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">
+                                        <ion-icon name="star-outline"></ion-icon> New arrivals
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">
+                                        <ion-icon name="bookmark-outline"></ion-icon> Brands
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">
+                                        <ion-icon name="wallet-outline"></ion-icon> Sellers
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">
+                                        <ion-icon name="heart-outline"></ion-icon> Wish list
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="container_padding" style="min-height: 600px;">
+            <div class="row">
+                <div class="col-md-12 mb-3">
+                    <center>
+                        <table border="0" cellpadding="5px"
+                            style="font-size: 0.85rem; font-weight: 400; text-transform: uppercase;">
+                            <tr>
+                                <td style="color: #666666;">My Cart</td>
+                                <td style="color: #cccccc;">
+                                    <div class="d-none d-md-block">
+                                        ------------
+                                    </div>
+                                    <div class="d-block d-md-none">
+                                        ----
+                                    </div>
+                                </td>
+                                <td style="color: #e00457; font-weight: 500;">Address</td>
+                                <td style="color: #cccccc;">
+                                    <div class="d-none d-md-block">
+                                        ------------
+                                    </div>
+                                    <div class="d-block d-md-none">
+                                        ----
+                                    </div>
+                                </td>
+                                <td style="color: #666666;">Payment</td>
+                            </tr>
+                        </table>
+                    </center>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-7">
+                    <form class="checkout_form">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h5
+                                    style="font-size: 1rem; text-transform: uppercase; font-weight: 600; color: #000000;">
+                                    Personal details</h5>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="email"><span>First name</span></label>
+                                    <input type="text" class="form-control form-control-checkout" id="inputText"
+                                        placeholder="Enter first name">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="email"><span>Last name</span></label>
+                                    <input type="text" class="form-control form-control-checkout"
+                                        placeholder="Enter last name">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email"><span>Email address</span></label>
+                            <input type="email" class="form-control form-control-checkout" id="email"
+                                aria-describedby="emailHelp" placeholder="Enter email address">
+                        </div>
+                        <div class="form-group">
+                            <label for="mobile"><span>Mobile</span></label>
+                            <input type="text" class="form-control form-control-checkout" id="mobile"
+                                placeholder="Enter mobile number">
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 mt-4 mb-2">
+                                <h5
+                                    style="font-size: 1rem; text-transform: uppercase; font-weight: 600; color: #000000;">
+                                    Shipping details</h5>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="address"><span>Street Address</span></label>
+                            <input type="text" class="form-control form-control-checkout" id="address"
+                                placeholder="House number / Street name ">
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="email"><span>City</span></label>
+                                    <input type="text" class="form-control form-control-checkout">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="email"><span>Area</span></label>
+                                    <input type="text" class="form-control form-control-checkout">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="landmark"><span>Landmark</span></label>
+                            <input type="text" class="form-control form-control-checkout" id="landmark"
+                                placeholder="(Optional)">
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-4">
+                    <div class="row mt-3 mt-md-0 mb-5">
+                        <div class="col-md-12 mb-2" onclick="openCartSummary()">
+                            <h5
+                                style="font-size: 0.85rem; text-transform: uppercase; font-weight: 400; color: #666666;">
+                                Cart Summary <span id="arrow_mark"><ion-icon
+                                        name="chevron-down-outline"></ion-icon></span> </h5>
+                        </div>
+                        <div class="col-md-12" id="cart_summary">
+                            <div class="cart_spec">
+                                <div class="row no-gutters mb-3">
+                                    <div class="col-4 col-md-3">
+                                        <img src="./asset/img/product/15.jpg" width="100%">
+                                    </div>
+                                    <div class="col-8 col-md-9">
+                                        <div class="pl-2 pl-md-3">
+                                            <h4 class="mb-2">Men Blue & White Slim Fit Checked Casual Shirt</h4>
+                                            <span>Qty : 1</span>
+                                            <h6>Rs.5000.00</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row no-gutters mb-3">
+                                    <div class="col-4 col-md-3">
+                                        <img src="./asset/img/product/15.jpg" width="100%">
+                                    </div>
+                                    <div class="col-8 col-md-9">
+                                        <div class="pl-2 pl-md-3">
+                                            <h4 class="mb-2">Men Blue & White Slim Fit Checked Casual Shirt</h4>
+                                            <span>Qty : 1</span>
+                                            <h6>Rs.5000.00</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <hr class="m-0">
+                        </div>
+                        <div class="col-md-12 mt-3">
+                            <h5
+                                style="font-size: 0.85rem; text-transform: uppercase; font-weight: 400; color: #666666;">
+                                COUPONS</h5>
+                            <table width="100%">
+                                <tr>
+                                    <td width="30px">
+                                        <img src="./asset/img/ticket.svg" width="17px">
+                                    </td>
+                                    <td style="font-size: 0.9rem; font-weight: 500; color: #222222;">Apply Coupons</td>
+                                    <td>
+                                        <button type="button" class="btn btn-outline-danger"
+                                            style="float: right; border-radius: 3px; padding: 0.3rem .7rem; font-size: 0.8rem; font-weight: 500;">APPLY</button>
+                                    </td>
+                                </tr>
+                            </table>
+                            <hr>
+                            <h5
+                                style="font-size: 0.85rem; text-transform: uppercase; font-weight: 400; color: #666666;">
+                                Order Summary</h5>
+                            <table width="100%" style="font-size: 0.85rem; color: #222222;">
+                                <tr>
+                                    <td class="pb-2 pt-2">
+                                        Subtotal
+                                    </td class="pb-2 pt-2">
+                                    <td align="right">
+                                        Rs. 10,000.00
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="pb-2 pt-2">
+                                        Delivery fee
+                                    </td class="pb-2 pt-2">
+                                    <td align="right">
+                                        Rs. 300.00
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="pb-2">
+                                        Discount
+                                    </td class="pb-2">
+                                    <td align="right">
+                                        <span style="color: #03a790;"> Rs. 0.00</span>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="pb-2">
+                                        Coupon Discount
+                                    </td>
+                                    <td align="right" class="pb-2">
+                                        <span style="color: #e00457;">Apply Coupon</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                                        <hr>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="font-size: .9rem; font-weight: 500;">
+                                        Total Amount
+                                    </td>
+                                    <td align="right" style="font-size:.9rem; font-weight: 500;">
+                                        Rs. 10,300.00
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" class="pt-3">
+                                        <button type="button" class="btn btn-block btn-danger text-uppercase"
+                                            style="background-color: #e00457; font-size: 0.85rem; border-radius: 3px; border: none; font-weight: 500; height: 46px;">
+                                            Place order
+                                        </button>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-6 col-md-2">
+                    <h1>Top Categories</h1>
+                    <p>
+                        Women Clothings<br> Men Clothings<br> Health & Beauty
+                    </p>
+                </div>
+                <div class="col-6 col-md-2">
+                    <h1>Quick Links</h1>
+                    <p>
+                        About Us<br> Privacy Policy <br>Terms Of Use
+                    </p>
+                </div>
+                <div class="col-6 col-md-2">
+                    <h1>My Account</h1>
+                    <p>
+                        My Profile<br> My Orders <br> Wishlist
+                    </p>
+                </div>
+                <div class="col-6 col-md-3">
+                    <h1>Womens.lk</h1>
+                    <p>Address,<br> City name<br> Phone: 000 123 456</p>
+                </div>
+                <div class="col-12 col-md-3">
+                    <h1>Cards Accepted</h1>
+                    <img src="asset/img/payment-cards.webp" width="60%">
+                    <h1 class="mt-1">Follow us</h1>
+                    <p style="font-size: 1rem;">
+                        <i class="fa fa-facebook mr-2"></i>
+                        <i class="fa fa-twitter mr-2"></i>
+                        <i class="fa fa-instagram mr-2"></i>
+                        <i class="fa fa-whatsapp"></i>
+                    </p>
+                </div>
+                <div class="col-md-12 text-center" style="font-size: 0.8rem;">
+                    Copyrights © 2023. All Rights Reserved.
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+<script>
+    $(document).ready(function () {
+        $(".loader").fadeOut();
+        $("#preloder").delay(200).fadeOut("slow");
+
+        // $(window).resize(function () {
+        //     if ($(window).width() >= 980) {
+
+        //         $(".navbar .dropdown-toggle").hover(function () {
+        //             $(this).parent().toggleClass("show");
+        //             $(this).parent().find(".dropdown-menu").toggleClass("show");
+        //         });
+        //         $(".navbar .dropdown-menu").mouseleave(function () {
+        //             $(this).removeClass("show");
+        //         });
+
+        //     }
+        // });
+
+        $(".btn-category").click(function () {
+            $("#shop_by_cat").slideToggle(300);
+        });
+    });
+</script>
+
+<script>
+    const formGroups = document.querySelectorAll('.form-group');
+
+    formGroups.forEach(formGroup => {
+        const input = formGroup.querySelector('input');
+        const label = input.previousElementSibling;
+
+        input.addEventListener('focus', () => {
+            label.classList.add('shrink');
+        });
+
+        input.addEventListener('blur', () => {
+            label.classList.remove('shrink');
+        });
+    });
+
+    function openCartSummary() {
+        $("#cart_summary").slideToggle(200);
+    }
+
+
+
+    $(document).ready(function () {
+        $('.owl-carousel2').owlCarousel({
+            margin: 15,
+            nav: false,
+            loop: true,
+            dots: true,
+            responsive: {
+                0: {
+                    items: 2
+                },
+                600: {
+                    items: 3
+                },
+                1000: {
+                    items: 5
+                }
+            }
+        });
+
+        $('.owl-carousel').owlCarousel({
+            margin: 20,
+            nav: true,
+            loop: true,
+            dots: false,
+            navText: ["<i class='fa fa-chevron-left'></i>", "<i class='fa fa-chevron-right'></i>"],
+            responsive: {
+                0: {
+                    items: 3
+                },
+                600: {
+                    items: 6
+                },
+                1000: {
+                    items: 10
+                }
+            }
+        });
+    })
+</script>
+
+</html>
