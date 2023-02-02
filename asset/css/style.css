@@ -228,13 +228,28 @@ body {
   position: absolute;
 }
 
-.btn-primary {
+.btn-primary,
+.btn-primary2,
+.btn-primary3 {
   background-color: #2370f4;
   border-radius: 3px;
   font-size: 0.85rem;
   font-weight: 500;
   text-transform: uppercase;
   padding: 0.5rem 1.5rem;
+}
+
+.btn-primary2 {
+  background-color: #c3d7fa;
+  color: rgba(0, 0, 0, 0.6);
+  text-transform: capitalize;
+}
+.btn-primary3 {
+  border: 1px solid #c3d7fa;
+  background-color: #ffffff;
+  color: #222c6b;
+  text-transform: capitalize;
+  height: 40px;
 }
 
 .best_seller img {
@@ -987,8 +1002,104 @@ body {
   margin: 10px 0px;
   padding: 0;
 }
+/***************************************/
+.account_title {
+  float: left;
+  width: 100%;
+  padding-bottom: 0.5rem;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
 
+.account_box {
+  float: left;
+  width: 100%;
+  padding: 1rem 0.5rem;
+  background-color: #f3f3f3;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  min-height: 200px;
+}
+
+.account_box_tbl td {
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: #666666;
+  border-bottom: 1px solid #dbdbdb;
+  padding: 10px;
+}
+
+.account_box_tbl th {
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  border-bottom: 1px solid #dbdbdb;
+  color: #222222;
+  padding: 10px;
+}
+
+.account_list {
+  float: left;
+  width: 100%;
+  padding: 1rem 0.5rem;
+  background-color: #f3f3f3;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 0.85rem;
+  font-weight: 500;
+  opacity: 0.6;
+  transition: all 0.2s ease-in-out;
+  overflow: hidden;
+}
+.account_list:hover {
+  opacity: 1 !important;
+  box-shadow: 0px 5px 10px -8px rgba(0, 0, 0, 0.5);
+}
+
+.account_list_active {
+  opacity: 1 !important;
+  box-shadow: 0px 5px 10px -8px rgba(0, 0, 0, 0.5);
+}
+
+.account_list table {
+  width: 100%;
+}
+
+.account_list_img img {
+  width: 50%;
+  margin-bottom: 10px;
+}
+
+.modal-content {
+  border: none;
+  border-radius: 3px;
+}
+.modal-title {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
 /*************************************/
+.form-group label {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #222222;
+}
+
+.login_control {
+  height: 50px;
+  font-size: 0.85rem;
+  border-radius: 5px;
+}
+
+.btn_signin {
+  background-color: #3339cd;
+  font-size: 0.9rem;
+  height: 45px;
+  border-radius: 5px;
+  border: none;
+}
+/************************************/
 .filter_ck_box {
   float: left;
   width: 100%;
@@ -1154,7 +1265,12 @@ input[type="checkbox"]:checked {
     right: 5px;
     font-size: 1.5rem;
   }
-  #cart_summary{
+  #cart_summary {
     display: none;
+  }
+
+  .account_list {
+    padding: 0.5rem 0.1rem;
+    font-size: 0.75rem;
   }
 }
